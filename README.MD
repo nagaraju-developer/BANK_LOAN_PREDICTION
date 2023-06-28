@@ -3,11 +3,16 @@ Bank Loan Prediction App
 
 This repository contains the code for a Bank Loan Prediction App, which helps predict whether a bank loan application is likely to be approved or rejected. The app is built using Streamlit, a Python library for building interactive web applications, and incorporates data preprocessing and machine learning techniques.
 
-Screenshots
+<a href="https://example.com" class="btn btn-primary">Screenshots</a>
+
+
+
 i)Sign Up
+
 ![image](https://github.com/nagaraju-developer/BANK_LOAN_PREDICTION/assets/106716843/6a08b595-bf55-40cb-9e5c-18dbc0ae6145)
 
 ii)Login
+
 ![image](https://github.com/nagaraju-developer/BANK_LOAN_PREDICTION/assets/106716843/28fc43ec-ea5a-46b2-89b0-a379015983a7)
 
 iii)DashBoard
