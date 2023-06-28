@@ -3,6 +3,8 @@ from PIL import Image
 import pickle
 
 def render_dashboard(session_state):
+    st.success('Successfully logged in')
+    st.balloons()
     st.title("Dashboard")
     st.write("Welcome to the dashboard!")
 
