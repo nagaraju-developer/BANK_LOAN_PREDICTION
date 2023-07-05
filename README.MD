@@ -39,7 +39,7 @@ Open the command prompt or terminal in the working directory.
 
 Run the following command to install the required dependencies:
 
-pip install -r requirements.txt
+>pip install -r requirements.txt
 
 Once the dependencies are installed, run the app by executing the following command:
 streamlit run Bank_Loan_Prediction.py
