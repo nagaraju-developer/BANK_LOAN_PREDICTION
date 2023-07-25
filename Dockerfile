@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y \
 # Clone the repository
 RUN git clone https://github.com/nagaraju-developer/BANK_LOAN_PREDICTION.git .
 
+# Add the Model_ml.pkl file from the model directory to the working directory
+COPY model/Model_ml.pkl /app/
+
 # Install Python dependencies
 RUN pip3 install -r requirements.txt
 
@@ -23,4 +26,4 @@ EXPOSE 8501
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 # Run the Streamlit app
-ENTRYPOINT ["streamlit", "run", "Bank_Loan_Prediction.py", "--server.port=8501", "--server.address=0.0.0.0"]clone
+ENTRYPOINT ["streamlit", "run", "Bank_Loan_Prediction.py", "--server.port=8501", "--server.address=0.0.0.0"]

@@ -1,14 +1,11 @@
 import streamlit as st
 from PIL import Image
-import pickle
 
-def render_dashboard(session_state):
+def render_dashboard(session_state, model):
     st.success('Successfully logged in')
     st.balloons()
     st.title("Dashboard")
     st.write("Welcome to the dashboard!")
-
-    model = pickle.load(open('C:/Users/user/Bank_Loan_Prediction/model/Model_ml.pkl', 'rb'))
 
     st.title("Bank Loan Prediction using Machine Learning")
 
