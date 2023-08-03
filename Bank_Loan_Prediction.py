@@ -1,33 +1,28 @@
 import streamlit as st
 import re
-from PIL import Image
 from db import create_table, insert_user, verify_credentials
 from Validation import validate_email, validate_password
 from Dashboard import render_dashboard
-
-
-def main():
-    create_table()
-    session_state = get_session_state()
-    
-
-    if session_state.is_authenticated:
-        render_dashboard(session_state, model_path="model/Model_ml.pkl")  # Update the model path
-    else:
-        render_login_page(session_state)
-
-
-def get_session_state():
-    if 'session_state' not in st.session_state:
-        st.session_state['session_state'] = SessionState()
-    return st.session_state['session_state']
-
 
 class SessionState:
     def __init__(self):
         self.is_authenticated = False
         self.successful_login = False
         self.successful_signup = False
+
+def main():
+    create_table()
+    session_state = get_session_state()
+
+    if session_state.is_authenticated:
+        render_dashboard(session_state)  # No need to pass the model_path here
+    else:
+        render_login_page(session_state)
+
+def get_session_state():
+    if 'session_state' not in st.session_state:
+        st.session_state['session_state'] = SessionState()
+    return st.session_state['session_state']
 
 
 def render_login_page(session_state):

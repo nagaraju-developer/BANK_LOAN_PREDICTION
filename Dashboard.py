@@ -1,13 +1,18 @@
 import streamlit as st
 from PIL import Image
+import pickle
+import os
 
-def render_dashboard(session_state, model):
+def render_dashboard(session_state):
     st.success('Successfully logged in')
     st.balloons()
     st.title("Dashboard")
     st.write("Welcome to the dashboard!")
 
-    model = pickle.load(open('Model_ml.pkl', 'rb'))
+    # Load the model using the provided model_path
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(current_dir, 'Model_ml.pkl')
+    model = pickle.load(open(model_path, 'rb'))
 
     st.title("Bank Loan Prediction using Machine Learning")
 

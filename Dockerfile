@@ -13,6 +13,15 @@ RUN apt-get update && apt-get install -y \
 # Clone the repository
 RUN git clone https://github.com/nagaraju-developer/BANK_LOAN_PREDICTION.git .
 
+# Copy the pickle file into the container
+COPY Model_ml.pkl /app/Model_ml.pkl
+
+# Update pip
+RUN pip install --upgrade pip
+
+# Modify requirements.txt to remove pywin32==306
+RUN sed -i '/pywin32==306/d' requirements.txt
+
 # Install Python dependencies
 RUN pip install -r requirements.txt
 
