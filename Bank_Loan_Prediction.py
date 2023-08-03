@@ -7,6 +7,7 @@ from Dashboard import render_dashboard
 def main():
     create_table()
     session_state = get_session_state()
+    
 
     if session_state.is_authenticated:
         render_dashboard(session_state)

@@ -13,8 +13,17 @@ RUN apt-get update && apt-get install -y \
 # Clone the repository
 RUN git clone https://github.com/nagaraju-developer/BANK_LOAN_PREDICTION.git .
 
+# Copy the pickle file into the container
+COPY Model_ml.pkl /app/Model_ml.pkl
+
+# Update pip
+RUN pip install --upgrade pip
+
+# Modify requirements.txt to remove pywin32==306
+RUN sed -i '/pywin32==306/d' requirements.txt
+
 # Install Python dependencies
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Expose the Streamlit port
 EXPOSE 8501
@@ -23,4 +32,4 @@ EXPOSE 8501
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 # Run the Streamlit app
-ENTRYPOINT ["streamlit", "run", "Bank_Loan_Prediction.py", "--server.port=8501", "--server.address=0.0.0.0"]clone
+ENTRYPOINT ["streamlit", "run", "Bank_Loan_Prediction.py", "--server.port=8501", "--server.address=0.0.0.0"]

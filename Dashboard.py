@@ -8,7 +8,8 @@ def render_dashboard(session_state):
     st.title("Dashboard")
     st.write("Welcome to the dashboard!")
 
-    model = pickle.load(open('C:/Users/user/Bank_Loan_Prediction/model/Model_ml.pkl', 'rb'))
+    model = pickle.load(open('Model_ml.pkl', 'rb'))
+
 
     st.title("Bank Loan Prediction using Machine Learning")
 
